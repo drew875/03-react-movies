@@ -1,11 +1,11 @@
-import SearchBar from "./components/SearchBar/SearchBar";
-import fetchMovies from "./services/movieServices";
-import type { Movie } from "./types/movie";
+import SearchBar from "../SearchBar/SearchBar";
+import fetchMovies from "../../services/movieServices";
+import type { Movie } from "../../types/movie";
 import { useEffect, useState } from "react";
-import MovieGrid from "./components/MovieGrid/MovieGrid";
-import MovieModal from "./components/MovieModal/MovieModal";
-import Loader from "./components/Loader/Loader";
-import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
+import MovieGrid from "../MovieGrid/MovieGrid";
+import MovieModal from "../MovieModal/MovieModal";
+import Loader from "../Loader/Loader";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 
 
