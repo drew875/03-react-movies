@@ -1,5 +1,5 @@
 import SearchBar from "../SearchBar/SearchBar";
-import fetchMovies from "../../services/movieServices";
+import fetchMovies from "../../services/movieService";
 import type { Movie } from "../../types/movie";
 import { useEffect, useState } from "react";
 import MovieGrid from "../MovieGrid/MovieGrid";
