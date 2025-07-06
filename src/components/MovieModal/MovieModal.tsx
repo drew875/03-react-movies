@@ -2,7 +2,7 @@ import css from "./MovieModal.module.css";
 import type { Movie } from "../../types/movie";
 import { createPortal } from "react-dom";
 import { useEffect } from "react";
-interface ModalProps {
+interface MovieModalProps {
     onClose: () => void;
     movie: Movie;
 }
@@ -10,13 +10,23 @@ interface ModalProps {
 const modalRoot = document.getElementById("modal-root")!;
 
 
-const MovieModal = ({ movie, onClose }: ModalProps) => {
+const MovieModal = ({ movie, onClose }: MovieModalProps) => {
 
     useEffect(() => {
         const handleEsc = (e: KeyboardEvent) => {
             if (e.key === "Escape") onClose();
         }
         window.addEventListener("keydown", handleEsc);
+
+        const originalOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            window.removeEventListener("keydown", handleEsc);
+
+            // Відновити прокрутку
+            document.body.style.overflow = originalOverflow;
+        };
     }, [onClose]);
 
     const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {

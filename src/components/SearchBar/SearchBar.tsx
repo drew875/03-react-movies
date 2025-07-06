@@ -4,7 +4,7 @@ interface SearchBarProps {
     onSubmit?: (query: string) => void;
 }
 
-const notyfy = () => toast("Please enter your search query.");
+const notify = () => toast("Please enter your search query.");
 const SearchBar = ({ onSubmit }: SearchBarProps) => {
 
     const handleSubmit = (formData: FormData) => {
@@ -12,7 +12,7 @@ const SearchBar = ({ onSubmit }: SearchBarProps) => {
         console.log("name", query);
 
         if (query == "") {
-            notyfy();
+            notify();
             return;
         }
         onSubmit?.(query);
