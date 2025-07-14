@@ -5,6 +5,7 @@ interface SearchBarProps {
 }
 
 const notify = () => toast("Please enter your search query.");
+
 const SearchBar = ({ onSubmit }: SearchBarProps) => {
 
     const handleSubmit = (formData: FormData) => {
@@ -25,14 +26,19 @@ const SearchBar = ({ onSubmit }: SearchBarProps) => {
         <div className={css.container}>
             <Toaster position="top-center" reverseOrder={false} />
             <a
-
                 href="https://www.themoviedb.org/"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 Powered by TMDB
             </a>
-            <form action={handleSubmit}>
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    const formData = new FormData(e.currentTarget);
+                    handleSubmit(formData);
+                }}
+            >
                 <input name="query" type="text" placeholder="Search movies..." autoComplete="off" />
                 <button type="submit">Search</button>
             </form>

@@ -19,7 +19,11 @@ const options = {
 
 const fetchMovies = async (query = ""): Promise<Movie[]> => {
     const res = await axios.get<TMDBResponse>(`https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1`, options);
+
+    console.log("Query", query);
+    console.log("TMDB token:", myKey);
     return res.data.results;
+
 };
 
 

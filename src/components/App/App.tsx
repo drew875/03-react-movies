@@ -47,7 +47,7 @@ const App = () => {
     document.body.style.overflow = "";
   };
   useEffect(() => {
-    searchMovies();
+
   }, []);
 
   return (
