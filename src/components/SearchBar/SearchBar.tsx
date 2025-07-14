@@ -33,11 +33,8 @@ const SearchBar = ({ onSubmit }: SearchBarProps) => {
                 Powered by TMDB
             </a>
             <form
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    const formData = new FormData(e.currentTarget);
-                    handleSubmit(formData);
-                }}
+                action={handleSubmit}
+
             >
                 <input name="query" type="text" placeholder="Search movies..." autoComplete="off" />
                 <button type="submit">Search</button>
